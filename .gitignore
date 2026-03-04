@@ -1,0 +1,10 @@
+build
+desktop.ini
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# 暂时不添加 asset/ 因为素材是临时的
+asset/
+
+*.tmp
