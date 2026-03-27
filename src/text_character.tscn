@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/text_character.gd" id="1_script"]
+
+[node name="TextCharacter" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_script")

@@ -1,0 +1,243 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/editor_ui.gd" id="1_script"]
+
+[node name="EditorUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="InputText" type="TextEdit" parent="VBox"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+placeholder_text = "Enter text here... (supports multiline)"
+
+[node name="ParseBtn" type="Button" parent="VBox"]
+layout_mode = 2
+text = "Parse Text"
+
+[node name="Scroll" type="ScrollContainer" parent="VBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Segments" type="VBoxContainer" parent="VBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Grid" type="GridContainer" parent="VBox"]
+layout_mode = 2
+columns = 4
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 4
+
+[node name="FontLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Font"
+
+[node name="FontOption" type="OptionButton" parent="VBox/Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SizeLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Size"
+
+[node name="FontSizeSpin" type="SpinBox" parent="VBox/Grid"]
+layout_mode = 2
+min_value = 12.0
+max_value = 200.0
+value = 48.0
+
+[node name="OutlineLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Outline"
+
+[node name="OutlineColorBtn" type="ColorPickerButton" parent="VBox/Grid"]
+layout_mode = 2
+color = Color(0, 0, 0, 0)
+
+[node name="OutlineSizeLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "O-Size"
+
+[node name="OutlineSizeSpin" type="SpinBox" parent="VBox/Grid"]
+layout_mode = 2
+min_value = 0.0
+max_value = 10.0
+value = 0.0
+
+[node name="BgLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "BG"
+
+[node name="BgColorBtn" type="ColorPickerButton" parent="VBox/Grid"]
+layout_mode = 2
+color = Color(0, 0, 0, 0)
+
+[node name="FadeLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Fade"
+
+[node name="FadeCheck" type="CheckBox" parent="VBox/Grid"]
+layout_mode = 2
+
+[node name="ScaleLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Scale"
+
+[node name="ScaleCheck" type="CheckBox" parent="VBox/Grid"]
+layout_mode = 2
+
+[node name="AnimSpeedLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Speed"
+
+[node name="AnimSpeedSpin" type="SpinBox" parent="VBox/Grid"]
+layout_mode = 2
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 1.0
+
+[node name="ScrollLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Scroll"
+
+[node name="ScrollCheck" type="CheckBox" parent="VBox/Grid"]
+layout_mode = 2
+
+[node name="ScrollSpdLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "S-Speed"
+
+[node name="SpeedSpin" type="SpinBox" parent="VBox/Grid"]
+layout_mode = 2
+min_value = 10.0
+max_value = 500.0
+value = 100.0
+editable = false
+
+[node name="DirLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Dir"
+
+[node name="DirectionOption" type="OptionButton" parent="VBox/Grid"]
+layout_mode = 2
+disabled = true
+
+[node name="GlowLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Glow"
+
+[node name="GlowCheck" type="CheckBox" parent="VBox/Grid"]
+layout_mode = 2
+
+[node name="GlowColorLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "G-Color"
+
+[node name="GlowColorBtn" type="ColorPickerButton" parent="VBox/Grid"]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+disabled = true
+
+[node name="GlowIntLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "G-Int"
+
+[node name="GlowIntensitySpin" type="SpinBox" parent="VBox/Grid"]
+layout_mode = 2
+min_value = 0.1
+max_value = 3.0
+step = 0.1
+value = 1.0
+editable = false
+
+[node name="GradientLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Gradient"
+
+[node name="GradientCheck" type="CheckBox" parent="VBox/Grid"]
+layout_mode = 2
+
+[node name="GradStartLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "G-Start"
+
+[node name="GradientStartBtn" type="ColorPickerButton" parent="VBox/Grid"]
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+disabled = true
+
+[node name="GradEndLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "G-End"
+
+[node name="GradientEndBtn" type="ColorPickerButton" parent="VBox/Grid"]
+layout_mode = 2
+color = Color(0, 0, 1, 1)
+disabled = true
+
+[node name="GradAnimLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "G-Anim"
+
+[node name="GradientAnimateCheck" type="CheckBox" parent="VBox/Grid"]
+layout_mode = 2
+disabled = true
+
+[node name="DanmakuLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Danmaku"
+
+[node name="DanmakuCheck" type="CheckBox" parent="VBox/Grid"]
+layout_mode = 2
+
+[node name="TemplateLabel" type="Label" parent="VBox/Grid"]
+layout_mode = 2
+text = "Template"
+
+[node name="TemplateOption" type="OptionButton" parent="VBox/Grid"]
+layout_mode = 2
+
+[node name="Bottom" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="PreviewBtn" type="Button" parent="VBox/Bottom"]
+layout_mode = 2
+text = "Preview"
+
+[node name="PlayBtn" type="Button" parent="VBox/Bottom"]
+layout_mode = 2
+text = "Play"
+
+[node name="StopBtn" type="Button" parent="VBox/Bottom"]
+layout_mode = 2
+text = "Stop"
+
+[node name="SaveBtn" type="Button" parent="VBox/Bottom"]
+layout_mode = 2
+text = "Save"
+
+[node name="LoadBtn" type="Button" parent="VBox/Bottom"]
+layout_mode = 2
+text = "Load"
