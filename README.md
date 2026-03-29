@@ -1,6 +1,6 @@
 # FlowText (TextFlow)
 
-**FlowText** 是一个基于 Godot 4.6 (兼容 4.x) 的高性能跨平台文本特效引擎。它旨在提供流畅、低延迟且易于使用的文本动效解决方案，适用于游戏 UI、直播弹幕、演示文稿等场景。
+**FlowText** 是一个基于 Godot 4.6.1 的高性能跨平台文本特效引擎。它旨在提供流畅、低延迟且易于使用的文本动效解决方案，适用于游戏 UI、应援、演示文稿等场景。
 
 ## 核心目标
 
@@ -21,7 +21,6 @@ TextFlow/
 │   ├── text_character.gd     # 单个字符节点 (效果单元)
 │   ├── effect.gd             # 效果基类 (可扩展)
 │   └── editor_ui.gd          # 编辑器 UI 逻辑 (文本分段与配置)
-├── fonts/                  # 字体资源 (建议放入 SourceHanSans.ttf 等中文字体)
 ├── effects/                # Shader 与特效预设
 │   ├── glow.shader           # 发光 Shader
 │   └── scroll.shader         # 滚动 Shader
@@ -31,8 +30,7 @@ TextFlow/
 ## 快速开始
 
 1.  **安装**: 克隆本项目到本地，使用 Godot 4.x 导入 `project.godot`。
-2.  **配置字体**: 将你的字体文件（如 `.ttf`）放入 `fonts/` 目录。
-3.  **运行**: 打开 `main.tscn` 运行场景，即可看到示例文本效果。
+2.  **运行**: 打开 `main.tscn` 运行场景，即可看到示例文本效果。
 
 ## 架构设计
 
