@@ -7,22 +7,34 @@ var _tween: Tween
 var _glow_shader: Shader
 var _gradient_shader: Shader
 
-func setup(char: String, size: int, color: Color, font: Font = null, outline_color: Color = Color.TRANSPARENT, outline_size: int = 0):
+func setup(
+		char: String, 
+		size: int, 
+		color: Color, 
+		font: Font = null, 
+		outline_color: Color = Color.TRANSPARENT, 
+		outline_size: int = 0
+	):
 	text = char
+
 	if font:
 		add_theme_font_override("font", font)
+	
 	add_theme_font_size_override("font_size", size)
+	
 	add_theme_color_override("font_color", color)
+	
 	if outline_size > 0 and outline_color.a > 0:
 		add_theme_color_override("font_outline_color", outline_color)
 		add_theme_constant_override("outline_size", outline_size)
+	
 	horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	pivot_offset = Vector2(size, size) * 0.5
 
 func apply_glow(glow_color: Color, intensity: float, size: float, softness: float):
 	if not _glow_shader:
-		_glow_shader = load("res://effects/glow.shader")
+		_glow_shader = load(Enum.get_path(Enum.EnumShaderType.GLOW))
 	var mat = ShaderMaterial.new()
 	mat.shader = _glow_shader
 	mat.set_shader_parameter("glow_color", glow_color)
@@ -33,7 +45,7 @@ func apply_glow(glow_color: Color, intensity: float, size: float, softness: floa
 
 func apply_gradient(color_start: Color, color_end: Color, animate: bool = false, speed: float = 1.0):
 	if not _gradient_shader:
-		_gradient_shader = load("res://effects/gradient.shader")
+		_gradient_shader = load(Enum.get_path(Enum.EnumShaderType.GRADIENT))
 	var mat = material as ShaderMaterial
 	if not mat:
 		mat = ShaderMaterial.new()
