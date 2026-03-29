@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://bl6j8k7agq1g0"]
 
-[ext_resource type="Script" path="res://src/editor_ui.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://cd5ym0p1vpi8h" path="res://src/editor_ui.gd" id="1_script"]
 
-[node name="EditorUI" type="Control"]
+[sub_resource type="Gradient" id="Gradient_e2uip"]
+offsets = PackedFloat32Array(0, 0.035168197, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.6070336, 0.6070336, 0.6070336, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7h630"]
+gradient = SubResource("Gradient_e2uip")
+
+[node name="EditorUI" type="Control" unique_id=977570097]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +18,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=418953713]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_7h630")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1027299411]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,146 +40,144 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
 
-[node name="InputText" type="TextEdit" parent="VBox"]
+[node name="InputText" type="TextEdit" parent="VBox" unique_id=1484005035]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 placeholder_text = "Enter text here... (supports multiline)"
 
-[node name="ParseBtn" type="Button" parent="VBox"]
+[node name="ParseBtn" type="Button" parent="VBox" unique_id=877649544]
 layout_mode = 2
 text = "Parse Text"
 
-[node name="Scroll" type="ScrollContainer" parent="VBox"]
+[node name="Scroll" type="ScrollContainer" parent="VBox" unique_id=221579709]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Segments" type="VBoxContainer" parent="VBox/Scroll"]
+[node name="Segments" type="VBoxContainer" parent="VBox/Scroll" unique_id=1782257520]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Grid" type="GridContainer" parent="VBox"]
+[node name="Grid" type="GridContainer" parent="VBox" unique_id=414030372]
 layout_mode = 2
-columns = 4
 theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 4
+columns = 4
 
-[node name="FontLabel" type="Label" parent="VBox/Grid"]
+[node name="FontLabel" type="Label" parent="VBox/Grid" unique_id=1094914279]
 layout_mode = 2
 text = "Font"
 
-[node name="FontOption" type="OptionButton" parent="VBox/Grid"]
+[node name="FontOption" type="OptionButton" parent="VBox/Grid" unique_id=945405176]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SizeLabel" type="Label" parent="VBox/Grid"]
+[node name="SizeLabel" type="Label" parent="VBox/Grid" unique_id=568821466]
 layout_mode = 2
 text = "Size"
 
-[node name="FontSizeSpin" type="SpinBox" parent="VBox/Grid"]
+[node name="FontSizeSpin" type="SpinBox" parent="VBox/Grid" unique_id=1733383477]
 layout_mode = 2
 min_value = 12.0
 max_value = 200.0
 value = 48.0
 
-[node name="OutlineLabel" type="Label" parent="VBox/Grid"]
+[node name="OutlineLabel" type="Label" parent="VBox/Grid" unique_id=1300330039]
 layout_mode = 2
 text = "Outline"
 
-[node name="OutlineColorBtn" type="ColorPickerButton" parent="VBox/Grid"]
+[node name="OutlineColorBtn" type="ColorPickerButton" parent="VBox/Grid" unique_id=1777220555]
 layout_mode = 2
 color = Color(0, 0, 0, 0)
 
-[node name="OutlineSizeLabel" type="Label" parent="VBox/Grid"]
+[node name="OutlineSizeLabel" type="Label" parent="VBox/Grid" unique_id=1814647653]
 layout_mode = 2
 text = "O-Size"
 
-[node name="OutlineSizeSpin" type="SpinBox" parent="VBox/Grid"]
+[node name="OutlineSizeSpin" type="SpinBox" parent="VBox/Grid" unique_id=779669710]
 layout_mode = 2
-min_value = 0.0
 max_value = 10.0
-value = 0.0
 
-[node name="BgLabel" type="Label" parent="VBox/Grid"]
+[node name="BgLabel" type="Label" parent="VBox/Grid" unique_id=810992643]
 layout_mode = 2
 text = "BG"
 
-[node name="BgColorBtn" type="ColorPickerButton" parent="VBox/Grid"]
+[node name="BgColorBtn" type="ColorPickerButton" parent="VBox/Grid" unique_id=1820265106]
 layout_mode = 2
-color = Color(0, 0, 0, 0)
+color = Color(0.89492244, 0.89492244, 0.8949224, 0)
 
-[node name="FadeLabel" type="Label" parent="VBox/Grid"]
+[node name="FadeLabel" type="Label" parent="VBox/Grid" unique_id=884514659]
 layout_mode = 2
 text = "Fade"
 
-[node name="FadeCheck" type="CheckBox" parent="VBox/Grid"]
+[node name="FadeCheck" type="CheckBox" parent="VBox/Grid" unique_id=2004428481]
 layout_mode = 2
 
-[node name="ScaleLabel" type="Label" parent="VBox/Grid"]
+[node name="ScaleLabel" type="Label" parent="VBox/Grid" unique_id=2065062891]
 layout_mode = 2
 text = "Scale"
 
-[node name="ScaleCheck" type="CheckBox" parent="VBox/Grid"]
+[node name="ScaleCheck" type="CheckBox" parent="VBox/Grid" unique_id=378242630]
 layout_mode = 2
 
-[node name="AnimSpeedLabel" type="Label" parent="VBox/Grid"]
+[node name="AnimSpeedLabel" type="Label" parent="VBox/Grid" unique_id=1504607689]
 layout_mode = 2
 text = "Speed"
 
-[node name="AnimSpeedSpin" type="SpinBox" parent="VBox/Grid"]
+[node name="AnimSpeedSpin" type="SpinBox" parent="VBox/Grid" unique_id=782716704]
 layout_mode = 2
 min_value = 0.1
 max_value = 5.0
 step = 0.1
 value = 1.0
 
-[node name="ScrollLabel" type="Label" parent="VBox/Grid"]
+[node name="ScrollLabel" type="Label" parent="VBox/Grid" unique_id=187083281]
 layout_mode = 2
 text = "Scroll"
 
-[node name="ScrollCheck" type="CheckBox" parent="VBox/Grid"]
+[node name="ScrollCheck" type="CheckBox" parent="VBox/Grid" unique_id=807303416]
 layout_mode = 2
 
-[node name="ScrollSpdLabel" type="Label" parent="VBox/Grid"]
+[node name="ScrollSpdLabel" type="Label" parent="VBox/Grid" unique_id=1670412406]
 layout_mode = 2
 text = "S-Speed"
 
-[node name="SpeedSpin" type="SpinBox" parent="VBox/Grid"]
+[node name="SpeedSpin" type="SpinBox" parent="VBox/Grid" unique_id=1215646078]
 layout_mode = 2
 min_value = 10.0
 max_value = 500.0
 value = 100.0
 editable = false
 
-[node name="DirLabel" type="Label" parent="VBox/Grid"]
+[node name="DirLabel" type="Label" parent="VBox/Grid" unique_id=1231801892]
 layout_mode = 2
 text = "Dir"
 
-[node name="DirectionOption" type="OptionButton" parent="VBox/Grid"]
+[node name="DirectionOption" type="OptionButton" parent="VBox/Grid" unique_id=72614303]
 layout_mode = 2
 disabled = true
 
-[node name="GlowLabel" type="Label" parent="VBox/Grid"]
+[node name="GlowLabel" type="Label" parent="VBox/Grid" unique_id=1210683906]
 layout_mode = 2
 text = "Glow"
 
-[node name="GlowCheck" type="CheckBox" parent="VBox/Grid"]
+[node name="GlowCheck" type="CheckBox" parent="VBox/Grid" unique_id=997088572]
 layout_mode = 2
 
-[node name="GlowColorLabel" type="Label" parent="VBox/Grid"]
+[node name="GlowColorLabel" type="Label" parent="VBox/Grid" unique_id=1875865388]
 layout_mode = 2
 text = "G-Color"
 
-[node name="GlowColorBtn" type="ColorPickerButton" parent="VBox/Grid"]
+[node name="GlowColorBtn" type="ColorPickerButton" parent="VBox/Grid" unique_id=818516164]
 layout_mode = 2
-color = Color(1, 1, 1, 1)
 disabled = true
+color = Color(1, 1, 1, 1)
 
-[node name="GlowIntLabel" type="Label" parent="VBox/Grid"]
+[node name="GlowIntLabel" type="Label" parent="VBox/Grid" unique_id=1743556112]
 layout_mode = 2
 text = "G-Int"
 
-[node name="GlowIntensitySpin" type="SpinBox" parent="VBox/Grid"]
+[node name="GlowIntensitySpin" type="SpinBox" parent="VBox/Grid" unique_id=243146061]
 layout_mode = 2
 min_value = 0.1
 max_value = 3.0
@@ -171,73 +185,73 @@ step = 0.1
 value = 1.0
 editable = false
 
-[node name="GradientLabel" type="Label" parent="VBox/Grid"]
+[node name="GradientLabel" type="Label" parent="VBox/Grid" unique_id=819335273]
 layout_mode = 2
 text = "Gradient"
 
-[node name="GradientCheck" type="CheckBox" parent="VBox/Grid"]
+[node name="GradientCheck" type="CheckBox" parent="VBox/Grid" unique_id=1527742859]
 layout_mode = 2
 
-[node name="GradStartLabel" type="Label" parent="VBox/Grid"]
+[node name="GradStartLabel" type="Label" parent="VBox/Grid" unique_id=138416533]
 layout_mode = 2
 text = "G-Start"
 
-[node name="GradientStartBtn" type="ColorPickerButton" parent="VBox/Grid"]
+[node name="GradientStartBtn" type="ColorPickerButton" parent="VBox/Grid" unique_id=1138310481]
 layout_mode = 2
-color = Color(1, 0, 0, 1)
 disabled = true
+color = Color(1, 0, 0, 1)
 
-[node name="GradEndLabel" type="Label" parent="VBox/Grid"]
+[node name="GradEndLabel" type="Label" parent="VBox/Grid" unique_id=2011299804]
 layout_mode = 2
 text = "G-End"
 
-[node name="GradientEndBtn" type="ColorPickerButton" parent="VBox/Grid"]
+[node name="GradientEndBtn" type="ColorPickerButton" parent="VBox/Grid" unique_id=1147390093]
 layout_mode = 2
-color = Color(0, 0, 1, 1)
 disabled = true
+color = Color(0, 0, 1, 1)
 
-[node name="GradAnimLabel" type="Label" parent="VBox/Grid"]
+[node name="GradAnimLabel" type="Label" parent="VBox/Grid" unique_id=664390956]
 layout_mode = 2
 text = "G-Anim"
 
-[node name="GradientAnimateCheck" type="CheckBox" parent="VBox/Grid"]
+[node name="GradientAnimateCheck" type="CheckBox" parent="VBox/Grid" unique_id=237375481]
 layout_mode = 2
 disabled = true
 
-[node name="DanmakuLabel" type="Label" parent="VBox/Grid"]
+[node name="DanmakuLabel" type="Label" parent="VBox/Grid" unique_id=1910869590]
 layout_mode = 2
 text = "Danmaku"
 
-[node name="DanmakuCheck" type="CheckBox" parent="VBox/Grid"]
+[node name="DanmakuCheck" type="CheckBox" parent="VBox/Grid" unique_id=542893472]
 layout_mode = 2
 
-[node name="TemplateLabel" type="Label" parent="VBox/Grid"]
+[node name="TemplateLabel" type="Label" parent="VBox/Grid" unique_id=1614620040]
 layout_mode = 2
 text = "Template"
 
-[node name="TemplateOption" type="OptionButton" parent="VBox/Grid"]
+[node name="TemplateOption" type="OptionButton" parent="VBox/Grid" unique_id=97722335]
 layout_mode = 2
 
-[node name="Bottom" type="HBoxContainer" parent="VBox"]
+[node name="Bottom" type="HBoxContainer" parent="VBox" unique_id=1570156478]
 layout_mode = 2
 alignment = 1
 
-[node name="PreviewBtn" type="Button" parent="VBox/Bottom"]
+[node name="PreviewBtn" type="Button" parent="VBox/Bottom" unique_id=376911093]
 layout_mode = 2
 text = "Preview"
 
-[node name="PlayBtn" type="Button" parent="VBox/Bottom"]
+[node name="PlayBtn" type="Button" parent="VBox/Bottom" unique_id=1893579414]
 layout_mode = 2
 text = "Play"
 
-[node name="StopBtn" type="Button" parent="VBox/Bottom"]
+[node name="StopBtn" type="Button" parent="VBox/Bottom" unique_id=1234691140]
 layout_mode = 2
 text = "Stop"
 
-[node name="SaveBtn" type="Button" parent="VBox/Bottom"]
+[node name="SaveBtn" type="Button" parent="VBox/Bottom" unique_id=2140211783]
 layout_mode = 2
 text = "Save"
 
-[node name="LoadBtn" type="Button" parent="VBox/Bottom"]
+[node name="LoadBtn" type="Button" parent="VBox/Bottom" unique_id=2031814775]
 layout_mode = 2
 text = "Load"

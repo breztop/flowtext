@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://b2ei03tg4qkou"]
 
-[ext_resource type="Script" path="res://src/text_flow_manager.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://d06pytk13klv5" path="res://src/text_flow_manager.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://src/text_character.tscn" id="2_char"]
 
-[node name="TextFlowManager" type="Control"]
+[sub_resource type="Gradient" id="Gradient_co314"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yrups"]
+gradient = SubResource("Gradient_co314")
+width = 512
+height = 256
+
+[node name="TextFlowManager" type="Control" unique_id=1708798408]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,9 +20,18 @@ grow_vertical = 2
 script = ExtResource("1_script")
 character_scene = ExtResource("2_char")
 
-[node name="BgPanel" type="Panel" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=58954749]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_yrups")
+
+[node name="BgPanel" type="Panel" parent="." unique_id=821774337]
 layout_mode = 1
 
-[node name="TextContainer" type="Control" parent="."]
+[node name="TextContainer" type="Control" parent="." unique_id=1835710841]
 layout_mode = 1
 anchors_preset = 0

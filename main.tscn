@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0u1tt7d1aq0e"]
+[gd_scene format=3 uid="uid://d0u1tt7d1aq0e"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://dq4tpqkeq6n73" path="res://main.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://src/text_flow_manager.tscn" id="2_manager"]
-[ext_resource type="PackedScene" path="res://src/editor_ui.tscn" id="3_editor"]
+[ext_resource type="PackedScene" uid="uid://bl6j8k7agq1g0" path="res://src/editor_ui.tscn" id="3_editor"]
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" unique_id=193274764]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,8 +13,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="TextFlowManager" parent="." instance=ExtResource("2_manager")]
+[node name="TextFlowManager" parent="." unique_id=1964396744 instance=ExtResource("2_manager")]
 layout_mode = 1
 
-[node name="EditorUI" parent="." instance=ExtResource("3_editor")]
+[node name="EditorUI" parent="." unique_id=1502200395 instance=ExtResource("3_editor")]
 layout_mode = 1
