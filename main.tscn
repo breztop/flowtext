@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://d0u1tt7d1aq0e"]
 
 [ext_resource type="Script" uid="uid://dq4tpqkeq6n73" path="res://main.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://src/text_flow_manager.tscn" id="2_manager"]
+[ext_resource type="PackedScene" uid="uid://b2ei03tg4qkou" path="res://src/text_flow_manager.tscn" id="2_manager"]
 [ext_resource type="PackedScene" uid="uid://bl6j8k7agq1g0" path="res://src/editor_ui.tscn" id="3_editor"]
+[ext_resource type="Theme" uid="uid://ctl7hcl0udnjp" path="res://ui/base_theme.tres" id="4_theme"]
 
 [node name="Main" type="Control" unique_id=193274764]
 layout_mode = 3
@@ -17,4 +18,86 @@ script = ExtResource("1_script")
 layout_mode = 1
 
 [node name="EditorUI" parent="." unique_id=1502200395 instance=ExtResource("3_editor")]
+visible = false
 layout_mode = 1
+
+[node name="SplashPage" type="ColorRect" parent="." unique_id=989489893]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("4_theme")
+color = Color(0.06, 0.07, 0.1, 1)
+
+[node name="CenterBox" type="VBoxContainer" parent="SplashPage" unique_id=1783652454]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -160.0
+offset_right = 240.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="SplashPage/CenterBox" unique_id=626712092]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.75, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "FlowText"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="SplashPage/CenterBox" unique_id=1644425330]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.65, 0.75, 1)
+theme_override_font_sizes/font_size = 18
+text = "文字流 · 文本特效引擎"
+horizontal_alignment = 1
+
+[node name="Sep" type="HSeparator" parent="SplashPage/CenterBox" unique_id=1255773820]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Desc" type="Label" parent="SplashPage/CenterBox" unique_id=17343542]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.55, 0.65, 1)
+theme_override_font_sizes/font_size = 14
+text = "应援灯牌 · 字幕提示 · 提词器 · 弹幕滚动
+基于 Godot 4.6 · 支持桌面与移动端"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Version" type="Label" parent="SplashPage/CenterBox" unique_id=688480643]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.4, 0.5, 1)
+theme_override_font_sizes/font_size = 12
+text = "v1.0.0"
+horizontal_alignment = 1
+
+[node name="HintLabel" type="Label" parent="SplashPage" unique_id=329882301]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -60.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.4, 0.45, 0.55, 0.7)
+theme_override_font_sizes/font_size = 13
+text = "点击任意位置进入"
+horizontal_alignment = 1

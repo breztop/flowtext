@@ -1,183 +1,315 @@
 [gd_scene format=3 uid="uid://bl6j8k7agq1g0"]
 
+[ext_resource type="Theme" uid="uid://ctl7hcl0udnjp" path="res://ui/base_theme.tres" id="1_7h630"]
 [ext_resource type="Script" uid="uid://cd5ym0p1vpi8h" path="res://src/editor_ui.gd" id="1_script"]
 
-[sub_resource type="Gradient" id="Gradient_e2uip"]
-offsets = PackedFloat32Array(0, 0.035168197, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.6070336, 0.6070336, 0.6070336, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_7h630"]
-gradient = SubResource("Gradient_e2uip")
-
-[node name="EditorUI" type="Control" unique_id=977570097]
+[node name="EditorUI" type="Control" unique_id=843969461]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7h630")
 script = ExtResource("1_script")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=418953713]
+[node name="BgPanel" type="Panel" parent="." unique_id=1849170547]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_7h630")
 
-[node name="VBox" type="VBoxContainer" parent="." unique_id=1027299411]
+[node name="MainMargin" type="MarginContainer" parent="." unique_id=1123043583]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="MainMargin" unique_id=1946913559]
+layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="InputText" type="TextEdit" parent="VBox" unique_id=1484005035]
-custom_minimum_size = Vector2(0, 80)
+[node name="TitleLabel" type="Label" parent="MainMargin/VBox" unique_id=1736792398]
+unique_name_in_owner = true
 layout_mode = 2
-placeholder_text = "Enter text here... (supports multiline)"
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "FlowText 文字流"
 
-[node name="ParseBtn" type="Button" parent="VBox" unique_id=877649544]
+[node name="Sep1" type="HSeparator" parent="MainMargin/VBox" unique_id=1073691529]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Parse Text"
 
-[node name="Scroll" type="ScrollContainer" parent="VBox" unique_id=221579709]
-custom_minimum_size = Vector2(0, 100)
+[node name="ModeBar" type="HBoxContainer" parent="MainMargin/VBox" unique_id=328843838]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_constants/separation = 6
+alignment = 1
 
-[node name="Segments" type="VBoxContainer" parent="VBox/Scroll" unique_id=1782257520]
+[node name="SupportModeBtn" type="Button" parent="MainMargin/VBox/ModeBar" unique_id=1529082460]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ModeButton"
+toggle_mode = true
+text = "应援"
+
+[node name="SubtitleModeBtn" type="Button" parent="MainMargin/VBox/ModeBar" unique_id=1065794136]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ModeButton"
+toggle_mode = true
+text = "字幕"
+
+[node name="TeleprompterModeBtn" type="Button" parent="MainMargin/VBox/ModeBar" unique_id=1474174448]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ModeButton"
+toggle_mode = true
+text = "提词器"
+
+[node name="DanmakuModeBtn" type="Button" parent="MainMargin/VBox/ModeBar" unique_id=506323179]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ModeButton"
+toggle_mode = true
+text = "弹幕"
+
+[node name="CustomModeBtn" type="Button" parent="MainMargin/VBox/ModeBar" unique_id=1852259220]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ModeButton"
+toggle_mode = true
+text = "自定义"
+
+[node name="PageTabBar" type="HBoxContainer" parent="MainMargin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="InputTabBtn" type="Button" parent="MainMargin/VBox/PageTabBar"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ModeButton"
+toggle_mode = true
+button_pressed = true
+text = "✏ 输入"
 
-[node name="Grid" type="GridContainer" parent="VBox" unique_id=414030372]
+[node name="SettingsTabBtn" type="Button" parent="MainMargin/VBox/PageTabBar"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/h_separation = 6
+size_flags_horizontal = 3
+theme_type_variation = &"ModeButton"
+toggle_mode = true
+text = "⚙ 设置"
+
+[node name="SegmentsTabBtn" type="Button" parent="MainMargin/VBox/PageTabBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ModeButton"
+toggle_mode = true
+text = "📝 片段"
+
+[node name="InputText" type="TextEdit" parent="MainMargin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "在此输入文字...\n支持多行，空格分隔每个词组\n\n例如：加油 必胜 冲鸭"
+
+[node name="SettingsScroll" type="ScrollContainer" parent="MainMargin/VBox" unique_id=181003476]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+visible = false
+
+[node name="SettingsVBox" type="VBoxContainer" parent="MainMargin/VBox/SettingsScroll" unique_id=1199580410]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="BasicLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox" unique_id=1410784404]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+text = "── 基本设置 ──"
+horizontal_alignment = 1
+
+[node name="BasicGrid" type="GridContainer" parent="MainMargin/VBox/SettingsScroll/SettingsVBox" unique_id=334070472]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 4
 columns = 4
 
-[node name="FontLabel" type="Label" parent="VBox/Grid" unique_id=1094914279]
+[node name="FontLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/BasicGrid" unique_id=1231943806]
 layout_mode = 2
-text = "Font"
+text = "字体"
 
-[node name="FontOption" type="OptionButton" parent="VBox/Grid" unique_id=945405176]
+[node name="FontOption" type="OptionButton" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/BasicGrid" unique_id=525519242]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SizeLabel" type="Label" parent="VBox/Grid" unique_id=568821466]
+[node name="SizeLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/BasicGrid" unique_id=342622975]
 layout_mode = 2
-text = "Size"
+text = "字号"
 
-[node name="FontSizeSpin" type="SpinBox" parent="VBox/Grid" unique_id=1733383477]
+[node name="FontSizeSpin" type="SpinBox" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/BasicGrid" unique_id=120969468]
+unique_name_in_owner = true
 layout_mode = 2
 min_value = 12.0
 max_value = 200.0
 value = 48.0
 
-[node name="OutlineLabel" type="Label" parent="VBox/Grid" unique_id=1300330039]
+[node name="OutlineLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/BasicGrid" unique_id=1874784088]
 layout_mode = 2
-text = "Outline"
+text = "描边颜色"
 
-[node name="OutlineColorBtn" type="ColorPickerButton" parent="VBox/Grid" unique_id=1777220555]
+[node name="OutlineColorBtn" type="ColorPickerButton" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/BasicGrid" unique_id=987418349]
+unique_name_in_owner = true
 layout_mode = 2
-color = Color(0, 0, 0, 0)
 
-[node name="OutlineSizeLabel" type="Label" parent="VBox/Grid" unique_id=1814647653]
+[node name="OutlineSizeLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/BasicGrid" unique_id=791244380]
 layout_mode = 2
-text = "O-Size"
+text = "描边粗细"
 
-[node name="OutlineSizeSpin" type="SpinBox" parent="VBox/Grid" unique_id=779669710]
+[node name="OutlineSizeSpin" type="SpinBox" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/BasicGrid" unique_id=859942208]
+unique_name_in_owner = true
 layout_mode = 2
 max_value = 10.0
 
-[node name="BgLabel" type="Label" parent="VBox/Grid" unique_id=810992643]
+[node name="BgLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/BasicGrid" unique_id=1858304421]
 layout_mode = 2
-text = "BG"
+text = "背景颜色"
 
-[node name="BgColorBtn" type="ColorPickerButton" parent="VBox/Grid" unique_id=1820265106]
-layout_mode = 2
-color = Color(0.89492244, 0.89492244, 0.8949224, 0)
-
-[node name="FadeLabel" type="Label" parent="VBox/Grid" unique_id=884514659]
-layout_mode = 2
-text = "Fade"
-
-[node name="FadeCheck" type="CheckBox" parent="VBox/Grid" unique_id=2004428481]
+[node name="BgColorBtn" type="ColorPickerButton" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/BasicGrid" unique_id=887577713]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ScaleLabel" type="Label" parent="VBox/Grid" unique_id=2065062891]
-layout_mode = 2
-text = "Scale"
-
-[node name="ScaleCheck" type="CheckBox" parent="VBox/Grid" unique_id=378242630]
+[node name="Spacer1" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/BasicGrid" unique_id=1597097349]
 layout_mode = 2
 
-[node name="AnimSpeedLabel" type="Label" parent="VBox/Grid" unique_id=1504607689]
+[node name="Spacer2" type="Control" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/BasicGrid" unique_id=401693641]
 layout_mode = 2
-text = "Speed"
 
-[node name="AnimSpeedSpin" type="SpinBox" parent="VBox/Grid" unique_id=782716704]
+[node name="AnimLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox" unique_id=405267404]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+text = "── 动画设置 ──"
+horizontal_alignment = 1
+
+[node name="AnimGrid" type="GridContainer" parent="MainMargin/VBox/SettingsScroll/SettingsVBox" unique_id=1561092971]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 4
+columns = 8
+
+[node name="FadeLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/AnimGrid" unique_id=863019055]
+layout_mode = 2
+text = "淡入效果"
+
+[node name="FadeCheck" type="CheckBox" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/AnimGrid" unique_id=134156621]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ScaleLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/AnimGrid" unique_id=1429195706]
+layout_mode = 2
+text = "缩放效果"
+
+[node name="ScaleCheck" type="CheckBox" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/AnimGrid" unique_id=1885077886]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AnimSpeedLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/AnimGrid" unique_id=514777587]
+layout_mode = 2
+text = "动画速度"
+
+[node name="AnimSpeedSpin" type="SpinBox" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/AnimGrid" unique_id=610152631]
+unique_name_in_owner = true
 layout_mode = 2
 min_value = 0.1
 max_value = 5.0
 step = 0.1
 value = 1.0
 
-[node name="ScrollLabel" type="Label" parent="VBox/Grid" unique_id=187083281]
+[node name="ScrollLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/AnimGrid" unique_id=282213221]
 layout_mode = 2
-text = "Scroll"
+text = "滚动显示"
 
-[node name="ScrollCheck" type="CheckBox" parent="VBox/Grid" unique_id=807303416]
+[node name="ScrollCheck" type="CheckBox" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/AnimGrid" unique_id=758127881]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ScrollSpdLabel" type="Label" parent="VBox/Grid" unique_id=1670412406]
+[node name="ScrollSpdLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/AnimGrid" unique_id=534569565]
 layout_mode = 2
-text = "S-Speed"
+text = "滚动速度"
 
-[node name="SpeedSpin" type="SpinBox" parent="VBox/Grid" unique_id=1215646078]
+[node name="SpeedSpin" type="SpinBox" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/AnimGrid" unique_id=742323581]
+unique_name_in_owner = true
 layout_mode = 2
 min_value = 10.0
 max_value = 500.0
 value = 100.0
 editable = false
 
-[node name="DirLabel" type="Label" parent="VBox/Grid" unique_id=1231801892]
+[node name="DirLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/AnimGrid" unique_id=1986601028]
 layout_mode = 2
-text = "Dir"
+text = "滚动方向"
 
-[node name="DirectionOption" type="OptionButton" parent="VBox/Grid" unique_id=72614303]
+[node name="DirectionOption" type="OptionButton" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/AnimGrid" unique_id=2099512781]
+unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 
-[node name="GlowLabel" type="Label" parent="VBox/Grid" unique_id=1210683906]
+[node name="EffectsLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox" unique_id=406593544]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Glow"
+theme_type_variation = &"SectionLabel"
+text = "── 特效设置 ──"
+horizontal_alignment = 1
 
-[node name="GlowCheck" type="CheckBox" parent="VBox/Grid" unique_id=997088572]
+[node name="EffectsGrid" type="GridContainer" parent="MainMargin/VBox/SettingsScroll/SettingsVBox" unique_id=1733670057]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 4
+columns = 8
+
+[node name="GlowLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=1719707015]
+layout_mode = 2
+text = "发光效果"
+
+[node name="GlowCheck" type="CheckBox" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=167213984]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="GlowColorLabel" type="Label" parent="VBox/Grid" unique_id=1875865388]
+[node name="GlowColorLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=348460762]
 layout_mode = 2
-text = "G-Color"
+text = "发光颜色"
 
-[node name="GlowColorBtn" type="ColorPickerButton" parent="VBox/Grid" unique_id=818516164]
+[node name="GlowColorBtn" type="ColorPickerButton" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=648027108]
+unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 color = Color(1, 1, 1, 1)
 
-[node name="GlowIntLabel" type="Label" parent="VBox/Grid" unique_id=1743556112]
+[node name="GlowIntLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=1913292844]
 layout_mode = 2
-text = "G-Int"
+text = "发光强度"
 
-[node name="GlowIntensitySpin" type="SpinBox" parent="VBox/Grid" unique_id=243146061]
+[node name="GlowIntensitySpin" type="SpinBox" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=1418344005]
+unique_name_in_owner = true
 layout_mode = 2
 min_value = 0.1
 max_value = 3.0
@@ -185,73 +317,88 @@ step = 0.1
 value = 1.0
 editable = false
 
-[node name="GradientLabel" type="Label" parent="VBox/Grid" unique_id=819335273]
+[node name="GradientLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=2062315557]
 layout_mode = 2
-text = "Gradient"
+text = "渐变效果"
 
-[node name="GradientCheck" type="CheckBox" parent="VBox/Grid" unique_id=1527742859]
+[node name="GradientCheck" type="CheckBox" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=1948297128]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="GradStartLabel" type="Label" parent="VBox/Grid" unique_id=138416533]
+[node name="GradStartLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=529187891]
 layout_mode = 2
-text = "G-Start"
+text = "起始颜色"
 
-[node name="GradientStartBtn" type="ColorPickerButton" parent="VBox/Grid" unique_id=1138310481]
+[node name="GradientStartBtn" type="ColorPickerButton" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=778067793]
+unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 color = Color(1, 0, 0, 1)
 
-[node name="GradEndLabel" type="Label" parent="VBox/Grid" unique_id=2011299804]
+[node name="GradEndLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=1258985725]
 layout_mode = 2
-text = "G-End"
+text = "终止颜色"
 
-[node name="GradientEndBtn" type="ColorPickerButton" parent="VBox/Grid" unique_id=1147390093]
+[node name="GradientEndBtn" type="ColorPickerButton" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=1443868730]
+unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 color = Color(0, 0, 1, 1)
 
-[node name="GradAnimLabel" type="Label" parent="VBox/Grid" unique_id=664390956]
+[node name="GradAnimLabel" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=1085407112]
 layout_mode = 2
-text = "G-Anim"
+text = "渐变动画"
 
-[node name="GradientAnimateCheck" type="CheckBox" parent="VBox/Grid" unique_id=237375481]
+[node name="GradientAnimateCheck" type="CheckBox" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=861726551]
+unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 
-[node name="DanmakuLabel" type="Label" parent="VBox/Grid" unique_id=1910869590]
-layout_mode = 2
-text = "Danmaku"
-
-[node name="DanmakuCheck" type="CheckBox" parent="VBox/Grid" unique_id=542893472]
+[node name="Spacer3" type="Label" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=1825667596]
 layout_mode = 2
 
-[node name="TemplateLabel" type="Label" parent="VBox/Grid" unique_id=1614620040]
-layout_mode = 2
-text = "Template"
-
-[node name="TemplateOption" type="OptionButton" parent="VBox/Grid" unique_id=97722335]
+[node name="Spacer4" type="Control" parent="MainMargin/VBox/SettingsScroll/SettingsVBox/EffectsGrid" unique_id=2037236185]
 layout_mode = 2
 
-[node name="Bottom" type="HBoxContainer" parent="VBox" unique_id=1570156478]
+[node name="SegmentScroll" type="ScrollContainer" parent="MainMargin/VBox" unique_id=40715705]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+visible = false
+
+[node name="Segments" type="VBoxContainer" parent="MainMargin/VBox/SegmentScroll" unique_id=1846243742]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Bottom" type="HBoxContainer" parent="MainMargin/VBox" unique_id=740446895]
+layout_mode = 2
+theme_override_constants/separation = 10
 alignment = 1
 
-[node name="PreviewBtn" type="Button" parent="VBox/Bottom" unique_id=376911093]
+[node name="PreviewBtn" type="Button" parent="MainMargin/VBox/Bottom" unique_id=1784490803]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Preview"
+text = "预览"
 
-[node name="PlayBtn" type="Button" parent="VBox/Bottom" unique_id=1893579414]
+[node name="PlayBtn" type="Button" parent="MainMargin/VBox/Bottom" unique_id=2104305545]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Play"
+theme_type_variation = &"GreenButton"
+text = "播放"
 
-[node name="StopBtn" type="Button" parent="VBox/Bottom" unique_id=1234691140]
+[node name="StopBtn" type="Button" parent="MainMargin/VBox/Bottom" unique_id=1158271750]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Stop"
+theme_type_variation = &"RedButton"
+text = "停止"
 
-[node name="SaveBtn" type="Button" parent="VBox/Bottom" unique_id=2140211783]
+[node name="SaveBtn" type="Button" parent="MainMargin/VBox/Bottom" unique_id=1643001925]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Save"
+text = "保存"
 
-[node name="LoadBtn" type="Button" parent="VBox/Bottom" unique_id=2031814775]
+[node name="LoadBtn" type="Button" parent="MainMargin/VBox/Bottom" unique_id=2140582260]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Load"
+text = "加载"
